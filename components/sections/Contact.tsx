@@ -9,40 +9,49 @@ type Status = "idle" | "sending" | "sent" | "error";
 export default function Contact() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [note, setNote] = useState("");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = e.currentTarget;
-    const data = new FormData(form);
-
     setStatus("sending");
     setErrorMsg("");
+    setNote("");
 
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: data.get("name"),
-          email: data.get("email"),
-          message: data.get("message"),
-          company: data.get("company") ?? "",
+          name,
+          email,
+          message,
         }),
       });
 
       const json = await res.json();
 
       if (!res.ok || !json.ok) {
-        throw new Error(json.error ?? "Something went wrong.");
+        throw new Error(json.error ?? "Failed to send message via API.");
       }
 
+      if (json.delivered === false) {
+        setNote(json.note ?? "Message recorded!");
+      }
       setStatus("sent");
-      form.reset();
     } catch (err: any) {
       setStatus("error");
-      setErrorMsg(err.message ?? "Something went wrong.");
+      setErrorMsg(err.message ?? "Something went wrong sending your message.");
     }
   }
+
+  const mailtoUrl = `mailto:${profile.email}?subject=${encodeURIComponent(
+    `Portfolio Message from ${name || "Visitor"}`
+  )}&body=${encodeURIComponent(
+    `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+  )}`;
 
   return (
     <section id="contact" className="relative py-28 md:py-40">
@@ -62,10 +71,10 @@ export default function Contact() {
 
           <div className="mt-10 space-y-3 text-sm">
             <a href={`mailto:${profile.email}`} className="block text-starlight hover:text-teal-soft transition-colors">
-              {profile.email}
+              ✉ {profile.email}
             </a>
             <a href={`tel:${profile.phone}`} className="block text-starlight/70 hover:text-teal-soft transition-colors">
-              {profile.phone}
+              📞 {profile.phone}
             </a>
             <div className="flex gap-5 pt-3">
               <a href={profile.github} target="_blank" rel="noreferrer" className="text-mist hover:text-teal-soft transition-colors">
@@ -86,16 +95,6 @@ export default function Contact() {
           onSubmit={handleSubmit}
           className="space-y-5"
         >
-          {/* honeypot — hidden from real visitors */}
-          <input
-            type="text"
-            name="company"
-            tabIndex={-1}
-            autoComplete="off"
-            className="hidden"
-            aria-hidden="true"
-          />
-
           <div>
             <label htmlFor="name" className="text-sm text-mist">
               Your name
@@ -103,6 +102,8 @@ export default function Contact() {
             <input
               id="name"
               name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               required
               minLength={2}
               className="mt-2 w-full rounded-xl border border-white/15 bg-white/[0.03] px-4 py-3 text-starlight placeholder:text-mist/50 outline-none focus:border-teal/60 transition-colors"
@@ -118,6 +119,8 @@ export default function Contact() {
               id="email"
               name="email"
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
               className="mt-2 w-full rounded-xl border border-white/15 bg-white/[0.03] px-4 py-3 text-starlight placeholder:text-mist/50 outline-none focus:border-teal/60 transition-colors"
               placeholder="you@example.com"
@@ -131,6 +134,8 @@ export default function Contact() {
             <textarea
               id="message"
               name="message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               required
               minLength={10}
               rows={5}
@@ -142,15 +147,35 @@ export default function Contact() {
           <button
             type="submit"
             disabled={status === "sending"}
-            className="w-full rounded-xl bg-gradient-to-r from-teal to-violet px-5 py-3 font-display text-void font-medium disabled:opacity-60 transition-opacity"
+            className="w-full rounded-xl bg-gradient-to-r from-teal to-violet px-5 py-3 font-display text-void font-medium disabled:opacity-60 transition-opacity hover:opacity-90"
           >
             {status === "sending" ? "Sending…" : "Send message"}
           </button>
 
           {status === "sent" && (
-            <p className="text-sm text-teal-soft">Message sent. I&apos;ll reply soon.</p>
+            <div className="space-y-2 rounded-xl bg-teal/10 border border-teal/20 p-4 text-sm text-teal-soft">
+              <p>✔ Message received! Thank you for reaching out.</p>
+              {note && <p className="text-xs text-starlight/70">{note}</p>}
+              <a
+                href={mailtoUrl}
+                className="inline-block mt-2 text-xs underline hover:text-white transition-colors"
+              >
+                Click here to also send a copy directly via your email app →
+              </a>
+            </div>
           )}
-          {status === "error" && <p className="text-sm text-rose-soft">{errorMsg}</p>}
+
+          {status === "error" && (
+            <div className="space-y-2 rounded-xl bg-rose-950/40 border border-rose-500/30 p-4 text-sm text-rose-soft">
+              <p>{errorMsg}</p>
+              <a
+                href={mailtoUrl}
+                className="inline-block mt-2 rounded-lg bg-white/10 px-3 py-1.5 text-xs text-starlight hover:bg-white/20 transition-colors"
+              >
+                Send directly via Email App ✉ →
+              </a>
+            </div>
+          )}
         </motion.form>
       </div>
 

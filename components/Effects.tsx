@@ -6,10 +6,12 @@ import dynamic from "next/dynamic";
 // browser-only APIs (WebGL context, pointer events), so they're excluded
 // from the server render entirely.
 const CursorStars = dynamic(() => import("@/components/CursorStars"), { ssr: false });
+const CubeBackground = dynamic(() => import("@/components/CubeBackground"), { ssr: false });
 
 export default function Effects() {
   return (
     <>
+      <CubeBackground />
       <CursorStars />
     </>
   );

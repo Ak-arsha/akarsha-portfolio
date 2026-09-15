@@ -61,10 +61,10 @@ export async function POST(req: NextRequest) {
   }
 
   const { name, email, message } = parsed.data;
-  const to = process.env.CONTACT_TO_EMAIL;
+  const to = process.env.CONTACT_TO_EMAIL || "akarshaagarwal25@gmail.com";
   const apiKey = process.env.RESEND_API_KEY;
 
-  if (!apiKey || !to) {
+  if (!apiKey) {
     // No email provider configured yet — log server-side so the message
     // isn't lost, and tell the caller clearly what's missing.
     console.log("[contact] new message (email delivery not configured):", {
@@ -76,7 +76,7 @@ export async function POST(req: NextRequest) {
       {
         ok: true,
         delivered: false,
-        note: "Message received. Email delivery is not configured on this deployment yet.",
+        note: "Message recorded! Direct email provider API key is not configured.",
       },
       { status: 200 }
     );
