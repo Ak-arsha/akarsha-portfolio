@@ -60,26 +60,36 @@ export async function POST(req: NextRequest) {
   const to = process.env.CONTACT_TO_EMAIL || "akarshaagarwal25@gmail.com";
   const apiKey = process.env.RESEND_API_KEY;
 
-  console.log("[contact] New message received from portfolio:", {
+  console.log("[contact] New portfolio message received:", {
     name,
     email,
     message,
+    to,
+    hasApiKey: Boolean(apiKey),
     timestamp: new Date().toISOString(),
   });
 
   if (apiKey) {
     try {
       const resend = new Resend(apiKey);
-      await resend.emails.send({
+      const res = await resend.emails.send({
         from: process.env.CONTACT_FROM_EMAIL ?? "Portfolio <onboarding@resend.dev>",
         to,
         replyTo: email,
         subject: `New portfolio message from ${name}`,
         text: `From: ${name} <${email}>\n\n${message}`,
       });
+
+      if (res.error) {
+        console.error("[contact] Resend API Error:", res.error);
+      } else {
+        console.log("[contact] Resend Email sent successfully, ID:", res.data?.id);
+      }
     } catch (error) {
-      console.error("[contact] Resend error logged, message preserved:", error);
+      console.error("[contact] Unexpected exception during email dispatch:", error);
     }
+  } else {
+    console.warn("[contact] RESEND_API_KEY is not set in environment variables.");
   }
 
   return NextResponse.json({ ok: true, delivered: true });
