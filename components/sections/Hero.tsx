@@ -7,14 +7,20 @@ export default function Hero() {
   return (
     <section id="top" className="relative min-h-[100svh] flex items-end pb-20 pt-40">
       <div className="section-shell w-full">
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="font-display text-sm text-teal-soft mb-6"
+          className="flex items-center gap-3 mb-6"
         >
-          {profile.location} · Open to research & engineering roles
-        </motion.p>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-teal/40 bg-teal/10 px-3 py-1 text-xs font-medium text-teal-soft">
+            <span className="h-2 w-2 rounded-full bg-teal animate-pulse" />
+            {profile.status}
+          </span>
+          <span className="font-display text-sm text-mist/80">
+            {profile.location}
+          </span>
+        </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
@@ -35,10 +41,10 @@ export default function Hero() {
         >
           <div className="hidden md:block h-full w-px bg-gradient-to-b from-teal via-violet to-transparent mt-1" />
           <div>
-            <p className="text-lg md:text-xl text-starlight/90 leading-relaxed">
-              {profile.tagline}
+            <p className="text-lg md:text-xl text-starlight/90 leading-relaxed font-normal">
+              {profile.intro}
             </p>
-            <p className="mt-4 text-sm text-mist">{profile.role}</p>
+            <p className="mt-4 text-sm text-teal-soft font-medium">{profile.role}</p>
 
             {/* Quick Profile Links */}
             <div className="mt-6 flex flex-wrap items-center gap-3 text-xs">
@@ -46,7 +52,7 @@ export default function Hero() {
                 href={profile.github}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-white/15 bg-white/[0.03] px-3 py-1.5 text-starlight hover:border-teal/60 hover:text-teal-soft transition-all"
+                className="rounded-full border border-white/15 bg-white/[0.03] px-3.5 py-1.5 text-starlight hover:border-teal/60 hover:text-teal-soft transition-all"
               >
                 GitHub ↗
               </a>
@@ -54,7 +60,7 @@ export default function Hero() {
                 href={profile.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-white/15 bg-white/[0.03] px-3 py-1.5 text-starlight hover:border-teal/60 hover:text-teal-soft transition-all"
+                className="rounded-full border border-white/15 bg-white/[0.03] px-3.5 py-1.5 text-starlight hover:border-teal/60 hover:text-teal-soft transition-all"
               >
                 LinkedIn ↗
               </a>
@@ -62,7 +68,7 @@ export default function Hero() {
                 href={profile.codeforces}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-white/15 bg-white/[0.03] px-3 py-1.5 text-starlight hover:border-teal/60 hover:text-teal-soft transition-all"
+                className="rounded-full border border-white/15 bg-white/[0.03] px-3.5 py-1.5 text-starlight hover:border-teal/60 hover:text-teal-soft transition-all"
               >
                 Codeforces (1388) ↗
               </a>
@@ -70,7 +76,7 @@ export default function Hero() {
                 href={profile.leetcode}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-white/15 bg-white/[0.03] px-3 py-1.5 text-starlight hover:border-teal/60 hover:text-teal-soft transition-all"
+                className="rounded-full border border-white/15 bg-white/[0.03] px-3.5 py-1.5 text-starlight hover:border-teal/60 hover:text-teal-soft transition-all"
               >
                 LeetCode (300+) ↗
               </a>
@@ -78,7 +84,7 @@ export default function Hero() {
                 href={profile.tuf}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-white/15 bg-white/[0.03] px-3 py-1.5 text-starlight hover:border-teal/60 hover:text-teal-soft transition-all"
+                className="rounded-full border border-white/15 bg-white/[0.03] px-3.5 py-1.5 text-starlight hover:border-teal/60 hover:text-teal-soft transition-all"
               >
                 TUF+ (360+) ↗
               </a>

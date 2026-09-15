@@ -62,19 +62,18 @@ export async function POST(req: NextRequest) {
   const apiKey = process.env.RESEND_API_KEY;
 
   const emailSubject = subject?.trim()
-    ? `${subject} — ${name}`
+    ? `Portfolio Contact: ${subject} — from ${name}`
     : `New portfolio message from ${name}`;
 
-  console.log("[contact] New portfolio message received:", {
+  console.log("[contact] Dispatching portfolio message:", {
     name,
     email,
     subject: emailSubject,
-    message,
     recipientEmail,
-    hasApiKey: Boolean(apiKey),
     timestamp: new Date().toISOString(),
   });
 
+  // 1. Resend API Dispatch
   if (apiKey) {
     try {
       const resend = new Resend(apiKey);
@@ -83,30 +82,46 @@ export async function POST(req: NextRequest) {
         to: recipientEmail,
         replyTo: email,
         subject: emailSubject,
-        text: `Sender Name: ${name}\nSender Email: ${email}\nSubject: ${subject || "No Subject"}\n\nMessage:\n${message}`,
+        text: `From: ${name} <${email}>\nSubject: ${subject || "No Subject"}\n\nMessage:\n${message}`,
         html: `
           <div style="font-family: sans-serif; line-height: 1.6; color: #111;">
-            <h2 style="color: #0d9488;">New Portfolio Contact Submission</h2>
+            <h2 style="color: #0d9488;">New Portfolio Message</h2>
             <p><strong>From:</strong> ${name} (&lt;<a href="mailto:${email}">${email}</a>&gt;)</p>
             <p><strong>Subject:</strong> ${subject || "No Subject"}</p>
             <hr style="border: none; border-top: 1px solid #eee; margin: 16px 0;" />
             <p style="white-space: pre-wrap;">${message}</p>
-            <hr style="border: none; border-top: 1px solid #eee; margin: 16px 0;" />
-            <p style="font-size: 12px; color: #666;">Hit "Reply" in your email client to respond directly to ${email}.</p>
           </div>
         `,
       });
-
       if (res.error) {
         console.error("[contact] Resend API Error:", res.error);
       } else {
-        console.log("[contact] Resend Email sent successfully, ID:", res.data?.id);
+        console.log("[contact] Resend email dispatched successfully:", res.data?.id);
       }
-    } catch (error) {
-      console.error("[contact] Unexpected exception during email dispatch:", error);
+    } catch (err) {
+      console.error("[contact] Resend exception:", err);
     }
-  } else {
-    console.warn("[contact] RESEND_API_KEY is not set in environment variables.");
+  }
+
+  // 2. Direct Backup Forwarder to guaranteed inbox (akarshaagarwal25@gmail.com)
+  try {
+    await fetch(`https://formsubmit.co/ajax/${recipientEmail}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        _subject: emailSubject,
+        _replyto: email,
+        message: message,
+      }),
+    });
+    console.log("[contact] Backup forwarder dispatched to:", recipientEmail);
+  } catch (err) {
+    console.error("[contact] Backup forwarder error:", err);
   }
 
   return NextResponse.json({ ok: true, delivered: true });

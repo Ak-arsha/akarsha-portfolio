@@ -63,11 +63,15 @@ export default function Contact() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
         >
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-teal/40 bg-teal/10 px-3 py-1 text-xs font-medium text-teal-soft mb-4">
+            <span className="h-2 w-2 rounded-full bg-teal animate-pulse" />
+            {profile.status}
+          </span>
           <h2 className="font-display text-3xl md:text-4xl text-starlight text-balance">
             Let&apos;s build something that works while it looks good.
           </h2>
           <p className="mt-5 text-starlight/70 leading-relaxed max-w-md">
-            Open to research collaborations, internships, and full-stack or ML engineering roles.
+            Open to work. Feel free to send me a message for software engineering, ML/AI roles, or research collaborations.
           </p>
 
           <div className="mt-10 space-y-3 text-sm">
@@ -179,7 +183,7 @@ export default function Contact() {
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
               className="mt-2 w-full rounded-xl border border-white/15 bg-white/[0.03] px-4 py-3 text-starlight placeholder:text-mist/50 outline-none focus:border-teal/60 transition-colors"
-              placeholder="Research / Opportunity Inquiry"
+              placeholder="Opportunity / Collaboration Inquiry"
             />
           </div>
 
@@ -212,7 +216,7 @@ export default function Contact() {
             <div className="space-y-2 rounded-xl bg-teal/15 border border-teal/30 p-4 text-sm text-teal-soft">
               <p className="font-medium text-starlight">✔ Message sent successfully!</p>
               <p className="text-xs text-starlight/80">
-                Thank you for reaching out. Akarsha will get back to you soon.
+                Thank you for reaching out! I&apos;ll get back to you as soon as possible.
               </p>
               <a
                 href={mailtoUrl}

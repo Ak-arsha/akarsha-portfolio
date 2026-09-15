@@ -2,6 +2,7 @@ export const profile = {
   name: "Akarsha Agarwal",
   role: "Computer Science Engineer — ML/CV & Full-Stack Systems",
   location: "Noida, Uttar Pradesh, India",
+  status: "Open to work",
   phone: "+91 6387671250",
   email: "akarshaagarwal25@gmail.com",
   linkedin: "https://www.linkedin.com/in/akarsha-agarwal",
@@ -13,8 +14,10 @@ export const profile = {
   leetcodeHandle: "Akarsha11",
   tuf: "https://takeuforward.org/profile/Akarsha",
   tufHandle: "Akarsha",
+  intro:
+    "Hi, I'm Akarsha Agarwal — a Computer Science Engineering student at JIIT Noida. I specialize in Machine Learning, Computer Vision, and Full-Stack Engineering. I build intelligent systems that watch, learn, and decide: from deep learning crop disease detection at IIT BHU to medical image watermarking research and full-stack AI web platforms.",
   tagline:
-    "I build systems that watch, learn, and decide — from paddy leaves to retinal scans to a night sky of stray photons on your screen.",
+    "I build intelligent systems that watch, learn, and decide — spanning computer vision, deep learning, image security, and scalable full-stack applications.",
 };
 
 export const education = [
@@ -48,8 +51,8 @@ export const experience = [
     period: "May 2026 – Jul 2026",
     link: "https://www.iitbhu.ac.in/",
     points: [
-      "Developed PaddyCare AI, a deep learning system to classify 10 major paddy crop diseases plus healthy leaves from images, using YOLO and EfficientNet with transfer learning, data augmentation, and fine-tuning.",
-      "Built and deployed an inference pipeline with FastAPI and Streamlit to support early disease detection for farmers, aiding faster intervention and reduced crop loss.",
+      "I developed PaddyCare AI, a deep learning system to classify 10 major paddy crop diseases plus healthy leaves from images, using YOLO and EfficientNet with transfer learning, data augmentation, and fine-tuning.",
+      "I built and deployed an inference pipeline with FastAPI and Streamlit to support early disease detection for farmers, aiding faster intervention and reduced crop loss.",
     ],
   },
   {
@@ -58,8 +61,8 @@ export const experience = [
     period: "Mar 2026 – Apr 2026",
     link: "https://eglogics.com/",
     points: [
-      "Built an automated face-recognition attendance system in Python and OpenCV that identifies individuals via facial features and records attendance digitally, replacing manual tracking.",
-      "Integrated facial recognition with a Flask backend and SQL database, enabling faster, contactless attendance capture and reducing administrative workload and recording errors.",
+      "I built an automated face-recognition attendance system in Python and OpenCV that identifies individuals via facial features and records attendance digitally, replacing manual tracking.",
+      "I integrated facial recognition with a Flask backend and SQL database, enabling faster, contactless attendance capture and reducing administrative workload and recording errors.",
     ],
   },
 ];
@@ -70,8 +73,8 @@ export const projects = [
     subtitle: "AI-Powered Image Editing Studio",
     stack: ["Python", "Streamlit", "OpenCV", "MediaPipe", "Gemini API", "Supabase"],
     points: [
-      "Built an interactive web studio for real-time image editing with automated smile enhancement and gaze correction using MediaPipe Face Mesh.",
-      "Integrated natural-language photo editing powered by the Gemini API with Supabase storage.",
+      "I built an interactive web studio for real-time image editing with automated smile enhancement and gaze correction using MediaPipe Face Mesh.",
+      "I integrated natural-language photo editing powered by the Gemini API with Supabase storage.",
     ],
     link: "https://github.com/Ak-arsha/picture-perfect",
     githubLink: "https://github.com/Ak-arsha",
@@ -81,8 +84,8 @@ export const projects = [
     subtitle: "Steganography & SVD Watermarking",
     stack: ["PyTorch", "OpenCV", "NumPy", "Scikit-image"],
     points: [
-      "Steganography: Designed a deep-learning steganography system comparing a baseline vs. residual-block architecture for hiding secret images in cover images, improving secret-image recovery SSIM from 0.78 to 0.89 and robustness to noise, blur, and rotation attacks.",
-      "SVD Watermarking: Built a classical SVD-based watermarking pipeline for medical image copyright protection, achieving 42.5 dB PSNR / 0.982 SSIM imperceptibility and 85% average watermark survival across 5 attack types on 7,000+ retinal images.",
+      "Steganography: I designed a deep-learning steganography system comparing a baseline vs. residual-block architecture for hiding secret images in cover images, improving secret-image recovery SSIM from 0.78 to 0.89 and robustness to noise, blur, and rotation attacks.",
+      "SVD Watermarking: I built a classical SVD-based watermarking pipeline for medical image copyright protection, achieving 42.5 dB PSNR / 0.982 SSIM imperceptibility and 85% average watermark survival across 5 attack types on 7,000+ retinal images.",
     ],
     link: "https://github.com/Ak-arsha",
     githubLink: "https://github.com/Ak-arsha",
@@ -92,8 +95,8 @@ export const projects = [
     subtitle: "AI Farm Advisory Platform",
     stack: ["Next.js", "FastAPI", "XGBoost", "LightGBM", "Supabase"],
     points: [
-      "Built a full-stack advisory platform for farmers with ML-based 5-day crop price forecasting, an explainable-AI panel, and a geo-spatial buyer recommendation engine using the haversine formula.",
-      "Designed a sell/store decision engine comparing live market prices to government MSP floors, with JWT/Google OAuth authentication and a FastAPI + PostgreSQL (Supabase) backend.",
+      "I built a full-stack advisory platform for farmers with ML-based 5-day crop price forecasting, an explainable-AI panel, and a geo-spatial buyer recommendation engine using the haversine formula.",
+      "I designed a sell/store decision engine comparing live market prices to government MSP floors, with JWT/Google OAuth authentication and a FastAPI + PostgreSQL (Supabase) backend.",
     ],
     link: "https://github.com/Ak-arsha/krishimitra",
     githubLink: "https://github.com/Ak-arsha",
@@ -107,17 +110,17 @@ export const publications = [
     venue: "Under review, Journal of the Franklin Institute (2026)",
     link: "https://www.sciencedirect.com/journal/journal-of-the-franklin-institute",
     detail:
-      "Co-authored a U-Net-based watermarking framework for embedding patient-identifying messages into medical retinal images; contributed to data curation and manuscript drafting. Proposed Enhanced Robust Decoder achieved 96% bit accuracy and 48.27 dB PSNR across 24 real-world image attacks, outperforming four baseline architectures.",
+      "I co-authored a U-Net-based watermarking framework for embedding patient-identifying messages into medical retinal images; contributed to data curation and manuscript drafting. Proposed Enhanced Robust Decoder achieved 96% bit accuracy and 48.27 dB PSNR across 24 real-world image attacks, outperforming four baseline architectures.",
   },
 ];
 
 export const achievements = [
   {
-    text: "Selected for the presentation round of Smart India Hackathon 2024 for a solution built around the “Root of Trust” problem statement.",
+    text: "I was selected for the presentation round of Smart India Hackathon 2024 for a solution built around the “Root of Trust” problem statement.",
     link: "https://www.sih.gov.in/",
   },
   {
-    text: "Selected as Team Lead of the AI/ML Domain under GDG (Google Developers Group), Jaypee Institute of Information Technology.",
+    text: "I was selected as Team Lead of the AI/ML Domain under GDG (Google Developers Group), Jaypee Institute of Information Technology.",
     link: "https://gdg.community.dev/",
   },
 ];
