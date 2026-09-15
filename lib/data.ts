@@ -50,6 +50,7 @@ export const experience = [
     org: "IIT (BHU) Varanasi",
     period: "May 2026 – Jul 2026",
     link: "https://www.iitbhu.ac.in/",
+    driveLink: "https://drive.google.com/drive/folders/1r6HeJMppizOD-Qg0CcufdnU0TnMgLBon?usp=sharing",
     points: [
       "I developed PaddyCare AI, a deep learning system to classify 10 major paddy crop diseases plus healthy leaves from images, using YOLO and EfficientNet with transfer learning, data augmentation, and fine-tuning.",
       "I built and deployed an inference pipeline with FastAPI and Streamlit to support early disease detection for farmers, aiding faster intervention and reduced crop loss.",
@@ -60,6 +61,7 @@ export const experience = [
     org: "Eglogics Softech Pvt. Ltd.",
     period: "Mar 2026 – Apr 2026",
     link: "https://eglogics.com/",
+    driveLink: "https://drive.google.com/file/d/1huvpreEEu0CjP0w-GXNGqvLYe-Na6fAJ/view?usp=sharing",
     points: [
       "I built an automated face-recognition attendance system in Python and OpenCV that identifies individuals via facial features and records attendance digitally, replacing manual tracking.",
       "I integrated facial recognition with a Flask backend and SQL database, enabling faster, contactless attendance capture and reducing administrative workload and recording errors.",
@@ -109,6 +111,7 @@ export const publications = [
       "LocalMark: Robust Localised Message Watermarking for Secure Digital Image Copyright Protection",
     venue: "Under review, Journal of the Franklin Institute (2026)",
     link: "https://www.sciencedirect.com/journal/journal-of-the-franklin-institute",
+    driveLink: "https://drive.google.com/file/d/1m6w9xMATJaSWIic-cI3O-EPm22PFAkzu/view?usp=sharing",
     detail:
       "I co-authored a U-Net-based watermarking framework for embedding patient-identifying messages into medical retinal images; contributed to data curation and manuscript drafting. Proposed Enhanced Robust Decoder achieved 96% bit accuracy and 48.27 dB PSNR across 24 real-world image attacks, outperforming four baseline architectures.",
   },

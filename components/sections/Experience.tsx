@@ -17,7 +17,7 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="grid md:grid-cols-[220px_1fr] gap-4 md:gap-10 border-t border-white/10 pt-8"
+              className="grid md:grid-cols-[240px_1fr] gap-4 md:gap-10 border-t border-white/10 pt-8"
             >
               <div>
                 <p className="text-sm text-teal-soft">{job.period}</p>
@@ -30,6 +30,19 @@ export default function Experience() {
                 >
                   {job.org} ↗
                 </a>
+
+                {job.driveLink && (
+                  <div className="mt-3">
+                    <a
+                      href={job.driveLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-teal/40 bg-teal/10 px-3 py-1 text-xs font-medium text-teal-soft hover:bg-teal/20 transition-all"
+                    >
+                      <span>📁 View Credentials / Docs ↗</span>
+                    </a>
+                  </div>
+                )}
               </div>
               <ul className="space-y-3">
                 {job.points.map((point) => (

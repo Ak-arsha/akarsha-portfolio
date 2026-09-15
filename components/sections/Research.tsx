@@ -32,6 +32,19 @@ export default function Research() {
                   <p className="mt-2 text-sm text-teal-soft">{pub.venue}</p>
                 </a>
                 <p className="mt-3 text-sm text-starlight/80 leading-relaxed">{pub.detail}</p>
+
+                {pub.driveLink && (
+                  <div className="mt-4 pt-3 border-t border-white/10">
+                    <a
+                      href={pub.driveLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-teal/40 bg-teal/10 px-3 py-1 text-xs font-medium text-teal-soft hover:bg-teal/20 transition-all"
+                    >
+                      <span>📄 View Research Paper PDF ↗</span>
+                    </a>
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
