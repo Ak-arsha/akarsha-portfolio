@@ -11,6 +11,7 @@ export default function Contact() {
   const [errorMsg, setErrorMsg] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -25,6 +26,7 @@ export default function Contact() {
         body: JSON.stringify({
           name,
           email,
+          subject,
           message,
         }),
       });
@@ -38,6 +40,7 @@ export default function Contact() {
       setStatus("sent");
       setName("");
       setEmail("");
+      setSubject("");
       setMessage("");
     } catch (err: any) {
       // Fallback: graceful success state with direct mail link
@@ -46,9 +49,9 @@ export default function Contact() {
   }
 
   const mailtoUrl = `mailto:${profile.email}?subject=${encodeURIComponent(
-    `Portfolio Message from ${name || "Visitor"}`
+    subject || `Portfolio Message from ${name || "Visitor"}`
   )}&body=${encodeURIComponent(
-    `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`
   )}`;
 
   return (
@@ -151,7 +154,7 @@ export default function Contact() {
 
           <div>
             <label htmlFor="email" className="text-sm text-mist">
-              Email
+              Email address
             </label>
             <input
               id="email"
@@ -162,6 +165,21 @@ export default function Contact() {
               required
               className="mt-2 w-full rounded-xl border border-white/15 bg-white/[0.03] px-4 py-3 text-starlight placeholder:text-mist/50 outline-none focus:border-teal/60 transition-colors"
               placeholder="you@example.com"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="subject" className="text-sm text-mist">
+              Subject
+            </label>
+            <input
+              id="subject"
+              name="subject"
+              type="text"
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
+              className="mt-2 w-full rounded-xl border border-white/15 bg-white/[0.03] px-4 py-3 text-starlight placeholder:text-mist/50 outline-none focus:border-teal/60 transition-colors"
+              placeholder="Research / Opportunity Inquiry"
             />
           </div>
 
