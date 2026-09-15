@@ -65,15 +65,14 @@ export async function POST(req: NextRequest) {
     ? `Portfolio Contact: ${subject} — from ${name}`
     : `New portfolio message from ${name}`;
 
-  console.log("[contact] Dispatching portfolio message:", {
+  console.log("[contact] Dispatching message for:", {
     name,
     email,
-    subject: emailSubject,
     recipientEmail,
     timestamp: new Date().toISOString(),
   });
 
-  // 1. Resend API Dispatch
+  // Channel 1: Resend API
   if (apiKey) {
     try {
       const resend = new Resend(apiKey);
@@ -103,13 +102,14 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  // 2. Direct Backup Forwarder to guaranteed inbox (akarshaagarwal25@gmail.com)
+  // Channel 2: FormSubmit Direct Forwarder
   try {
-    await fetch(`https://formsubmit.co/ajax/${recipientEmail}`, {
+    const fsRes = await fetch(`https://formsubmit.co/ajax/${recipientEmail}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Referer: "https://akarsha-portfolio.vercel.app/",
       },
       body: JSON.stringify({
         name: name,
@@ -119,9 +119,10 @@ export async function POST(req: NextRequest) {
         message: message,
       }),
     });
-    console.log("[contact] Backup forwarder dispatched to:", recipientEmail);
+    const fsData = await fsRes.json();
+    console.log("[contact] FormSubmit response:", fsData);
   } catch (err) {
-    console.error("[contact] Backup forwarder error:", err);
+    console.error("[contact] FormSubmit forwarder exception:", err);
   }
 
   return NextResponse.json({ ok: true, delivered: true });
