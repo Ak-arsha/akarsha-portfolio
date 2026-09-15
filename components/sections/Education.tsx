@@ -18,14 +18,21 @@ export default function Education() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.55, delay: i * 0.08 }}
-              className="rounded-2xl border border-white/10 p-6 bg-gradient-to-b from-white/[0.03] to-transparent"
+              className="rounded-2xl border border-white/10 p-6 bg-gradient-to-b from-white/[0.03] to-transparent hover:border-teal/40 transition-all"
             >
               <p className="text-sm text-teal-soft">{item.years}</p>
               <h3 className="mt-2 font-display text-lg text-starlight leading-snug">
                 {item.degree}
               </h3>
-              <p className="mt-1 text-sm text-mist">{item.institute}</p>
-              <p className="mt-4 text-sm text-violet-soft">{item.score}</p>
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noreferrer"
+                className="block mt-1 text-sm text-mist hover:text-teal-soft transition-colors"
+              >
+                {item.institute} ↗
+              </a>
+              <p className="mt-4 text-sm font-medium text-violet-soft">{item.score}</p>
             </motion.div>
           ))}
         </div>

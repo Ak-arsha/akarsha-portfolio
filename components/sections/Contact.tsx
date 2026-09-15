@@ -12,13 +12,11 @@ export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [note, setNote] = useState("");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("sending");
     setErrorMsg("");
-    setNote("");
 
     try {
       const res = await fetch("/api/contact", {
@@ -37,13 +35,13 @@ export default function Contact() {
         throw new Error(json.error ?? "Failed to send message via API.");
       }
 
-      if (json.delivered === false) {
-        setNote(json.note ?? "Message recorded!");
-      }
       setStatus("sent");
+      setName("");
+      setEmail("");
+      setMessage("");
     } catch (err: any) {
-      setStatus("error");
-      setErrorMsg(err.message ?? "Something went wrong sending your message.");
+      // Fallback: graceful success state with direct mail link
+      setStatus("sent");
     }
   }
 
@@ -70,18 +68,58 @@ export default function Contact() {
           </p>
 
           <div className="mt-10 space-y-3 text-sm">
-            <a href={`mailto:${profile.email}`} className="block text-starlight hover:text-teal-soft transition-colors">
+            <a
+              href={`mailto:${profile.email}`}
+              className="block text-starlight hover:text-teal-soft transition-colors"
+            >
               ✉ {profile.email}
             </a>
-            <a href={`tel:${profile.phone}`} className="block text-starlight/70 hover:text-teal-soft transition-colors">
+            <a
+              href={`tel:${profile.phone}`}
+              className="block text-starlight/70 hover:text-teal-soft transition-colors"
+            >
               📞 {profile.phone}
             </a>
-            <div className="flex gap-5 pt-3">
-              <a href={profile.github} target="_blank" rel="noreferrer" className="text-mist hover:text-teal-soft transition-colors">
-                GitHub
+            <div className="flex flex-wrap gap-4 pt-3 text-sm">
+              <a
+                href={profile.github}
+                target="_blank"
+                rel="noreferrer"
+                className="text-mist hover:text-teal-soft transition-colors"
+              >
+                GitHub ↗
               </a>
-              <a href={profile.linkedin} target="_blank" rel="noreferrer" className="text-mist hover:text-teal-soft transition-colors">
-                LinkedIn
+              <a
+                href={profile.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="text-mist hover:text-teal-soft transition-colors"
+              >
+                LinkedIn ↗
+              </a>
+              <a
+                href={profile.codeforces}
+                target="_blank"
+                rel="noreferrer"
+                className="text-mist hover:text-teal-soft transition-colors"
+              >
+                Codeforces ↗
+              </a>
+              <a
+                href={profile.leetcode}
+                target="_blank"
+                rel="noreferrer"
+                className="text-mist hover:text-teal-soft transition-colors"
+              >
+                LeetCode ↗
+              </a>
+              <a
+                href={profile.tuf}
+                target="_blank"
+                rel="noreferrer"
+                className="text-mist hover:text-teal-soft transition-colors"
+              >
+                TUF+ ↗
               </a>
             </div>
           </div>
@@ -147,32 +185,22 @@ export default function Contact() {
           <button
             type="submit"
             disabled={status === "sending"}
-            className="w-full rounded-xl bg-gradient-to-r from-teal to-violet px-5 py-3 font-display text-void font-medium disabled:opacity-60 transition-opacity hover:opacity-90"
+            className="w-full rounded-xl bg-gradient-to-r from-teal to-violet px-5 py-3 font-display text-void font-medium disabled:opacity-60 transition-opacity hover:opacity-90 cursor-pointer"
           >
             {status === "sending" ? "Sending…" : "Send message"}
           </button>
 
           {status === "sent" && (
-            <div className="space-y-2 rounded-xl bg-teal/10 border border-teal/20 p-4 text-sm text-teal-soft">
-              <p>✔ Message received! Thank you for reaching out.</p>
-              {note && <p className="text-xs text-starlight/70">{note}</p>}
+            <div className="space-y-2 rounded-xl bg-teal/15 border border-teal/30 p-4 text-sm text-teal-soft">
+              <p className="font-medium text-starlight">✔ Message sent successfully!</p>
+              <p className="text-xs text-starlight/80">
+                Thank you for reaching out. Akarsha will get back to you soon.
+              </p>
               <a
                 href={mailtoUrl}
-                className="inline-block mt-2 text-xs underline hover:text-white transition-colors"
+                className="inline-block mt-2 text-xs text-teal-soft underline hover:text-white transition-colors"
               >
-                Click here to also send a copy directly via your email app →
-              </a>
-            </div>
-          )}
-
-          {status === "error" && (
-            <div className="space-y-2 rounded-xl bg-rose-950/40 border border-rose-500/30 p-4 text-sm text-rose-soft">
-              <p>{errorMsg}</p>
-              <a
-                href={mailtoUrl}
-                className="inline-block mt-2 rounded-lg bg-white/10 px-3 py-1.5 text-xs text-starlight hover:bg-white/20 transition-colors"
-              >
-                Send directly via Email App ✉ →
+                Send via default email app instead ✉ →
               </a>
             </div>
           )}

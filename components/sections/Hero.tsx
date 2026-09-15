@@ -13,7 +13,7 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="font-display text-sm text-teal-soft mb-6"
         >
-          {profile.location} · open to research & engineering roles
+          {profile.location} · Open to research & engineering roles
         </motion.p>
 
         <motion.h1
@@ -39,6 +39,50 @@ export default function Hero() {
               {profile.tagline}
             </p>
             <p className="mt-4 text-sm text-mist">{profile.role}</p>
+
+            {/* Quick Profile Links */}
+            <div className="mt-6 flex flex-wrap items-center gap-3 text-xs">
+              <a
+                href={profile.github}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full border border-white/15 bg-white/[0.03] px-3 py-1.5 text-starlight hover:border-teal/60 hover:text-teal-soft transition-all"
+              >
+                GitHub ↗
+              </a>
+              <a
+                href={profile.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full border border-white/15 bg-white/[0.03] px-3 py-1.5 text-starlight hover:border-teal/60 hover:text-teal-soft transition-all"
+              >
+                LinkedIn ↗
+              </a>
+              <a
+                href={profile.codeforces}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full border border-white/15 bg-white/[0.03] px-3 py-1.5 text-starlight hover:border-teal/60 hover:text-teal-soft transition-all"
+              >
+                Codeforces (1388) ↗
+              </a>
+              <a
+                href={profile.leetcode}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full border border-white/15 bg-white/[0.03] px-3 py-1.5 text-starlight hover:border-teal/60 hover:text-teal-soft transition-all"
+              >
+                LeetCode (300+) ↗
+              </a>
+              <a
+                href={profile.tuf}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full border border-white/15 bg-white/[0.03] px-3 py-1.5 text-starlight hover:border-teal/60 hover:text-teal-soft transition-all"
+              >
+                TUF+ (360+) ↗
+              </a>
+            </div>
           </div>
         </motion.div>
       </div>

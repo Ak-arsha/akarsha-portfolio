@@ -4,11 +4,15 @@ export const profile = {
   location: "Noida, Uttar Pradesh, India",
   phone: "+91 6387671250",
   email: "akarshaagarwal25@gmail.com",
-  linkedin: "https://linkedin.com/in/akarsha-agarwal",
+  linkedin: "https://www.linkedin.com/in/akarsha-agarwal",
   github: "https://github.com/Ak-arsha",
   githubHandle: "Ak-arsha",
+  codeforces: "https://codeforces.com/profile/Akarsha__Agarwal",
   codeforcesHandle: "Akarsha__Agarwal",
+  leetcode: "https://leetcode.com/u/Akarsha11/",
   leetcodeHandle: "Akarsha11",
+  tuf: "https://takeuforward.org/profile/Akarsha",
+  tufHandle: "Akarsha",
   tagline:
     "I build systems that watch, learn, and decide — from paddy leaves to retinal scans to a night sky of stray photons on your screen.",
 };
@@ -19,18 +23,21 @@ export const education = [
     degree: "B.Tech, Computer Science & Engineering",
     institute: "Jaypee Institute of Information Technology, Noida",
     score: "7.17 / 10.0 CGPA",
+    link: "https://www.jiit.ac.in/",
   },
   {
     years: "2022 – 2023",
     degree: "Class XII",
     institute: "CMS Rajendra Nagar 1, Lucknow, Uttar Pradesh",
     score: "94.75%",
+    link: "https://www.cmseducation.org/",
   },
   {
     years: "2021 – 2022",
     degree: "Class X",
     institute: "CMS Rajendra Nagar 1, Lucknow, Uttar Pradesh",
     score: "93.8%",
+    link: "https://www.cmseducation.org/",
   },
 ];
 
@@ -39,18 +46,20 @@ export const experience = [
     role: "Research Intern",
     org: "IIT (BHU) Varanasi",
     period: "May 2026 – Jul 2026",
+    link: "https://www.iitbhu.ac.in/",
     points: [
-      "Developed PaddyCare AI, a deep learning system classifying 10 major paddy crop diseases plus healthy leaves from images, using YOLO and EfficientNet with transfer learning, augmentation, and fine-tuning.",
-      "Built and deployed an inference pipeline with FastAPI and Streamlit for early disease detection, helping farmers act faster and cut crop loss.",
+      "Developed PaddyCare AI, a deep learning system to classify 10 major paddy crop diseases plus healthy leaves from images, using YOLO and EfficientNet with transfer learning, data augmentation, and fine-tuning.",
+      "Built and deployed an inference pipeline with FastAPI and Streamlit to support early disease detection for farmers, aiding faster intervention and reduced crop loss.",
     ],
   },
   {
     role: "Python Developer",
     org: "Eglogics Softech Pvt. Ltd.",
     period: "Mar 2026 – Apr 2026",
+    link: "https://eglogics.com/",
     points: [
-      "Built an automated face-recognition attendance system in Python and OpenCV that identifies individuals and records attendance digitally, replacing manual tracking.",
-      "Integrated facial recognition with a Flask backend and SQL database for faster, contactless attendance capture with fewer recording errors.",
+      "Built an automated face-recognition attendance system in Python and OpenCV that identifies individuals via facial features and records attendance digitally, replacing manual tracking.",
+      "Integrated facial recognition with a Flask backend and SQL database, enabling faster, contactless attendance capture and reducing administrative workload and recording errors.",
     ],
   },
 ];
@@ -58,33 +67,36 @@ export const experience = [
 export const projects = [
   {
     name: "Picture Perfect",
-    subtitle: "AI-powered image editing studio",
+    subtitle: "AI-Powered Image Editing Studio",
     stack: ["Python", "Streamlit", "OpenCV", "MediaPipe", "Gemini API", "Supabase"],
     points: [
-      "Interactive web studio for real-time image editing with automated smile enhancement and gaze correction via MediaPipe Face Mesh.",
-      "Natural-language photo editing powered by the Gemini API.",
+      "Built an interactive web studio for real-time image editing with automated smile enhancement and gaze correction using MediaPipe Face Mesh.",
+      "Integrated natural-language photo editing powered by the Gemini API with Supabase storage.",
     ],
-    link: "#",
+    link: "https://github.com/Ak-arsha/picture-perfect",
+    githubLink: "https://github.com/Ak-arsha",
   },
   {
-    name: "Image Security Suite",
-    subtitle: "Deep learning & classical approaches to image protection",
+    name: "Deep Learning & Image Security Suite",
+    subtitle: "Steganography & SVD Watermarking",
     stack: ["PyTorch", "OpenCV", "NumPy", "Scikit-image"],
     points: [
-      "Deep-learning steganography comparing baseline vs. residual-block architectures for hiding secret images, improving recovery SSIM from 0.78 to 0.89.",
-      "Classical SVD-based watermarking for medical image copyright protection — 42.5 dB PSNR / 0.982 SSIM, 85% average survival across 5 attack types on 7,000+ retinal images.",
+      "Steganography: Designed a deep-learning steganography system comparing a baseline vs. residual-block architecture for hiding secret images in cover images, improving secret-image recovery SSIM from 0.78 to 0.89 and robustness to noise, blur, and rotation attacks.",
+      "SVD Watermarking: Built a classical SVD-based watermarking pipeline for medical image copyright protection, achieving 42.5 dB PSNR / 0.982 SSIM imperceptibility and 85% average watermark survival across 5 attack types on 7,000+ retinal images.",
     ],
-    link: "#",
+    link: "https://github.com/Ak-arsha",
+    githubLink: "https://github.com/Ak-arsha",
   },
   {
     name: "KrishiMitra",
-    subtitle: "AI farm advisory platform",
+    subtitle: "AI Farm Advisory Platform",
     stack: ["Next.js", "FastAPI", "XGBoost", "LightGBM", "Supabase"],
     points: [
-      "Full-stack advisory platform with ML-based 5-day crop price forecasting, an explainable-AI panel, and a geo-spatial buyer-recommendation engine using the haversine formula.",
-      "Sell/store decision engine comparing live market prices to government MSP floors, with JWT/Google OAuth and a FastAPI + PostgreSQL (Supabase) backend.",
+      "Built a full-stack advisory platform for farmers with ML-based 5-day crop price forecasting, an explainable-AI panel, and a geo-spatial buyer recommendation engine using the haversine formula.",
+      "Designed a sell/store decision engine comparing live market prices to government MSP floors, with JWT/Google OAuth authentication and a FastAPI + PostgreSQL (Supabase) backend.",
     ],
-    link: "#",
+    link: "https://github.com/Ak-arsha/krishimitra",
+    githubLink: "https://github.com/Ak-arsha",
   },
 ];
 
@@ -93,14 +105,21 @@ export const publications = [
     title:
       "LocalMark: Robust Localised Message Watermarking for Secure Digital Image Copyright Protection",
     venue: "Under review, Journal of the Franklin Institute (2026)",
+    link: "https://www.sciencedirect.com/journal/journal-of-the-franklin-institute",
     detail:
-      "Co-authored a U-Net-based watermarking framework embedding patient-identifying messages into medical retinal images; contributed to data curation and manuscript drafting. The proposed Enhanced Robust Decoder reached 96% bit accuracy and 48.27 dB PSNR across 24 real-world image attacks, outperforming four baseline architectures.",
+      "Co-authored a U-Net-based watermarking framework for embedding patient-identifying messages into medical retinal images; contributed to data curation and manuscript drafting. Proposed Enhanced Robust Decoder achieved 96% bit accuracy and 48.27 dB PSNR across 24 real-world image attacks, outperforming four baseline architectures.",
   },
 ];
 
 export const achievements = [
-  "Selected for the presentation round of Smart India Hackathon 2024, for a solution built around the \u201cRoot of Trust\u201d problem statement.",
-  "Selected as Team Lead of the AI/ML Domain under GDG (Google Developers Group), Jaypee Institute of Information Technology.",
+  {
+    text: "Selected for the presentation round of Smart India Hackathon 2024 for a solution built around the “Root of Trust” problem statement.",
+    link: "https://www.sih.gov.in/",
+  },
+  {
+    text: "Selected as Team Lead of the AI/ML Domain under GDG (Google Developers Group), Jaypee Institute of Information Technology.",
+    link: "https://gdg.community.dev/",
+  },
 ];
 
 export const skills = {
@@ -118,21 +137,27 @@ export const skills = {
   ],
   "Web & Frameworks": [
     "Django",
-    "DRF",
+    "Django REST Framework",
     "Flask",
     "FastAPI",
     "React.js",
     "WebRTC",
     "Node.js",
     "Streamlit",
+    "Next.js",
   ],
   "Tools & Platforms": [
     "Git/GitHub",
     "Google Colab",
-    "Jupyter",
+    "Jupyter Notebook",
     "VS Code",
     "Overleaf",
     "REST APIs",
   ],
   Databases: ["SQL", "Supabase (PostgreSQL)"],
+  "Competitive Programming": [
+    "Codeforces (Rating: 1388)",
+    "LeetCode (300+ Solved)",
+    "TUF+ (360+ Solved)",
+  ],
 };

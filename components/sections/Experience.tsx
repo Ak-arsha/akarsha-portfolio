@@ -22,7 +22,14 @@ export default function Experience() {
               <div>
                 <p className="text-sm text-teal-soft">{job.period}</p>
                 <h3 className="mt-1 font-display text-xl text-starlight">{job.role}</h3>
-                <p className="text-sm text-mist">{job.org}</p>
+                <a
+                  href={job.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-block mt-0.5 text-sm text-mist hover:text-teal-soft transition-colors"
+                >
+                  {job.org} ↗
+                </a>
               </div>
               <ul className="space-y-3">
                 {job.points.map((point) => (
