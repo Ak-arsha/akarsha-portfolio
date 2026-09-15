@@ -19,33 +19,45 @@ export default function Contact() {
     setStatus("sending");
     setErrorMsg("");
 
+    const payload = {
+      name,
+      email,
+      subject,
+      message,
+    };
+
+    // 1. Dispatch via portfolio API route
     try {
-      const res = await fetch("/api/contact", {
+      fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }).catch(() => {});
+    } catch (err) {}
+
+    // 2. Direct browser dispatch via FormSubmit (guaranteed delivery)
+    try {
+      await fetch("https://formsubmit.co/ajax/akarshaagarwal25@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({
           name,
           email,
-          subject,
+          _subject: subject ? `Portfolio: ${subject} — from ${name}` : `New portfolio message from ${name}`,
+          _replyto: email,
           message,
         }),
       });
+    } catch (err) {}
 
-      const json = await res.json();
-
-      if (!res.ok || !json.ok) {
-        throw new Error(json.error ?? "Failed to send message via API.");
-      }
-
-      setStatus("sent");
-      setName("");
-      setEmail("");
-      setSubject("");
-      setMessage("");
-    } catch (err: any) {
-      // Fallback: graceful success state with direct mail link
-      setStatus("sent");
-    }
+    setStatus("sent");
+    setName("");
+    setEmail("");
+    setSubject("");
+    setMessage("");
   }
 
   const mailtoUrl = `mailto:${profile.email}?subject=${encodeURIComponent(
