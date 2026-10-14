@@ -240,11 +240,6 @@ export default function Contact() {
           )}
         </motion.form>
       </div>
-
-      <div className="section-shell mt-24 pt-8 border-t border-white/10 flex flex-col md:flex-row gap-3 md:items-center md:justify-between text-xs text-mist/70">
-        <p>© {new Date().getFullYear()} {profile.name}. Built with Next.js, Three.js, and a night sky.</p>
-        <p>Deployed on Vercel</p>
-      </div>
     </section>
   );
 }

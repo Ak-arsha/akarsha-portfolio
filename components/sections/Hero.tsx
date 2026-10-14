@@ -1,11 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { profile } from "@/lib/data";
 
 export default function Hero() {
   return (
-    <section id="top" className="relative min-h-[100svh] flex items-end pb-20 pt-40">
+    <section id="top" className="relative min-h-[92svh] flex items-end pb-16 pt-32">
       <div className="section-shell w-full">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -46,8 +47,30 @@ export default function Hero() {
             </p>
             <p className="mt-4 text-sm text-teal-soft font-medium">{profile.role}</p>
 
+            {/* Primary Action Buttons */}
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <Link
+                href="/projects"
+                className="rounded-full bg-gradient-to-r from-teal to-violet px-5 py-2.5 font-display text-xs md:text-sm font-semibold text-void hover:opacity-90 transition-opacity"
+              >
+                Explore All 11 Projects →
+              </Link>
+              <Link
+                href="/education"
+                className="rounded-full border border-teal/40 bg-white/[0.04] px-5 py-2.5 font-display text-xs md:text-sm font-semibold text-starlight hover:border-teal hover:text-teal-soft transition-all"
+              >
+                Education & Academics →
+              </Link>
+              <Link
+                href="/contact"
+                className="rounded-full border border-white/20 px-5 py-2.5 font-display text-xs md:text-sm font-semibold text-mist hover:text-starlight hover:border-white/40 transition-colors"
+              >
+                Say hello ✉
+              </Link>
+            </div>
+
             {/* Quick Profile Links */}
-            <div className="mt-6 flex flex-wrap items-center gap-3 text-xs">
+            <div className="mt-6 flex flex-wrap items-center gap-2 text-xs">
               <a
                 href={profile.github}
                 target="_blank"

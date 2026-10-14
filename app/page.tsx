@@ -1,5 +1,3 @@
-import Nav from "@/components/Nav";
-import Effects from "@/components/Effects";
 import Hero from "@/components/sections/Hero";
 import Experience from "@/components/sections/Experience";
 import Education from "@/components/sections/Education";
@@ -12,20 +10,14 @@ import Contact from "@/components/sections/Contact";
 export default function Home() {
   return (
     <>
-      <Effects />
-      <div className="pointer-events-none fixed inset-0 -z-10 bg-aurora" />
-
-      <Nav />
-      <main className="relative">
-        <Hero />
-        <Experience />
-        <Education />
-        <Projects />
-        <Skills />
-        <Research />
-        <LiveStats />
-        <Contact />
-      </main>
+      <Hero />
+      <Experience />
+      <Education />
+      <Projects />
+      <Research />
+      <Skills />
+      <LiveStats />
+      <Contact />
     </>
   );
 }
