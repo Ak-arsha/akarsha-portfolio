@@ -85,7 +85,7 @@ export default function Nav() {
             href="/contact"
             className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-teal/40 bg-teal/10 px-4 py-1.5 text-xs md:text-sm font-medium text-teal-soft hover:bg-teal/20 hover:border-teal transition-all"
           >
-            <span>Say hello ✉</span>
+            <span>Say hello</span>
           </Link>
 
           {/* Mobile hamburger button */}
@@ -153,7 +153,7 @@ export default function Nav() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="block text-center rounded-xl bg-gradient-to-r from-teal to-violet py-2.5 font-display text-sm font-semibold text-void"
               >
-                Say hello ✉
+                Say hello
               </Link>
             </li>
           </ul>

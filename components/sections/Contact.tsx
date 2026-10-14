@@ -91,13 +91,13 @@ export default function Contact() {
               href={`mailto:${profile.email}`}
               className="block text-starlight hover:text-teal-soft transition-colors"
             >
-              ✉ {profile.email}
+              Email: {profile.email}
             </a>
             <a
               href={`tel:${profile.phone}`}
               className="block text-starlight/70 hover:text-teal-soft transition-colors"
             >
-              📞 {profile.phone}
+              Phone: {profile.phone}
             </a>
             <div className="flex flex-wrap gap-4 pt-3 text-sm">
               <a
@@ -226,7 +226,7 @@ export default function Contact() {
 
           {status === "sent" && (
             <div className="space-y-2 rounded-xl bg-teal/15 border border-teal/30 p-4 text-sm text-teal-soft">
-              <p className="font-medium text-starlight">✔ Message sent successfully!</p>
+              <p className="font-medium text-starlight">Message sent successfully!</p>
               <p className="text-xs text-starlight/80">
                 Thank you for reaching out! I&apos;ll get back to you as soon as possible.
               </p>
@@ -234,7 +234,7 @@ export default function Contact() {
                 href={mailtoUrl}
                 className="inline-block mt-2 text-xs text-teal-soft underline hover:text-white transition-colors"
               >
-                Send via default email app instead ✉ →
+                Send via default email app instead →
               </a>
             </div>
           )}

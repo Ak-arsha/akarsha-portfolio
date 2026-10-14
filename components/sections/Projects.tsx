@@ -59,7 +59,7 @@ export default function Projects() {
 
                   {project.metrics && (
                     <p className="mt-2 text-[11px] font-mono text-mist/90 bg-white/[0.04] px-2 py-0.5 rounded border border-white/10 inline-block">
-                      ⚡ {project.metrics}
+                      {project.metrics}
                     </p>
                   )}
 

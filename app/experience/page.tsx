@@ -23,7 +23,7 @@ export default function ExperiencePage() {
           </div>
 
           <div className="inline-flex items-center gap-2 rounded-full border border-teal/40 bg-teal/10 px-3.5 py-1 text-xs font-medium text-teal-soft mb-4">
-            <span>💼 Engineering & Research Internships</span>
+            <span>Engineering & Research Internships</span>
           </div>
 
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-starlight font-bold tracking-tight">
@@ -52,7 +52,7 @@ export default function ExperiencePage() {
                     <span className="text-xs text-mist bg-white/5 px-2.5 py-1 rounded-md">
                       {job.type}
                     </span>
-                    <span className="text-xs text-mist/70">📍 {job.location}</span>
+                    <span className="text-xs text-mist/70">{job.location}</span>
                   </div>
 
                   <h2 className="mt-3 font-display text-2xl md:text-3xl font-semibold text-starlight">
@@ -78,7 +78,7 @@ export default function ExperiencePage() {
                       rel="noreferrer"
                       className="inline-flex items-center gap-2 rounded-xl bg-teal/15 border border-teal/40 px-4 py-2.5 text-xs md:text-sm font-semibold text-teal-soft hover:bg-teal/25 hover:border-teal transition-all"
                     >
-                      <span>📁 View Verified Certificate ↗</span>
+                      <span>View Verified Certificate ↗</span>
                     </a>
                   </div>
                 )}
@@ -133,7 +133,7 @@ export default function ExperiencePage() {
               href="/contact"
               className="rounded-xl bg-gradient-to-r from-teal to-violet px-6 py-3 font-display text-sm font-semibold text-void hover:opacity-90 transition-opacity"
             >
-              Get in Touch ✉
+              Get in Touch
             </Link>
             <Link
               href="/projects"

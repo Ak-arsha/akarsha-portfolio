@@ -71,7 +71,7 @@ export default function Research() {
                       rel="noreferrer"
                       className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-teal to-violet px-4 py-2 text-xs font-semibold text-void hover:opacity-90 transition-opacity"
                     >
-                      <span>📄 View LocalMark Manuscript PDF ↗</span>
+                      <span>View LocalMark Manuscript PDF ↗</span>
                     </a>
                   </div>
                 )}

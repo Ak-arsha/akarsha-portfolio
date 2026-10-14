@@ -26,7 +26,7 @@ export default function SkillsPage() {
           </div>
 
           <div className="inline-flex items-center gap-2 rounded-full border border-teal/40 bg-teal/10 px-3.5 py-1 text-xs font-medium text-teal-soft mb-4">
-            <span>⚙ Stack, Tools & Competitive Programming</span>
+            <span>Stack, Tools & Competitive Programming</span>
           </div>
 
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-starlight font-bold tracking-tight">
@@ -175,7 +175,7 @@ export default function SkillsPage() {
                 <span className="font-display text-base font-bold text-starlight group-hover:text-teal-soft transition-colors">
                   Direct Email
                 </span>
-                <span className="text-xs text-teal-soft">✉</span>
+                <span className="text-xs text-teal-soft">Email ↗</span>
               </div>
               <p className="mt-3 font-display text-sm font-semibold text-teal-soft truncate">
                 {profile.email}

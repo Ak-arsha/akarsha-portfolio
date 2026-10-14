@@ -231,7 +231,7 @@ export const projects: ProjectItem[] = [
   },
   {
     id: "krishimitra",
-    name: "KrishiMitra 🌾",
+    name: "KrishiMitra",
     subtitle: "AI Farm Advisory & Multi-Role Mandi Platform",
     category: "AI / ML & CV",
     stack: ["Next.js 14", "FastAPI", "XGBoost", "LightGBM", "Supabase", "PostgreSQL", "Tailwind CSS", "Framer Motion"],
@@ -249,7 +249,7 @@ export const projects: ProjectItem[] = [
   },
   {
     id: "picture-perfect",
-    name: "Picture Perfect 📸",
+    name: "Picture Perfect",
     subtitle: "AI-Powered Image Post-Processing Studio",
     category: "AI / ML & CV",
     stack: ["Python", "Streamlit", "OpenCV", "MediaPipe Face Mesh", "Gemini API", "Supabase"],

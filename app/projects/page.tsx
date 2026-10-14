@@ -23,7 +23,7 @@ export default function ProjectsPage() {
           </div>
 
           <div className="inline-flex items-center gap-2 rounded-full border border-teal/40 bg-teal/10 px-3.5 py-1 text-xs font-medium text-teal-soft mb-4">
-            <span>⚡ Production & Research Implementations</span>
+            <span>Production & Research Implementations</span>
           </div>
 
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-starlight font-bold tracking-tight">

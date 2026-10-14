@@ -99,7 +99,9 @@ export default function ProjectsClient() {
               onClick={() => setSearchQuery("")}
               className="absolute right-3 top-2.5 text-xs text-mist hover:text-white"
             >
-              ✕
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
             </button>
           )}
         </div>
@@ -181,7 +183,7 @@ function ProjectCard({ project }: { project: ProjectItem }) {
         {/* Metrics Pill */}
         {project.metrics && (
           <div className="mt-3 inline-block text-[11px] font-mono text-mist/90 bg-white/[0.04] border border-white/10 rounded-lg px-2.5 py-1">
-            ⚡ {project.metrics}
+            {project.metrics}
           </div>
         )}
 

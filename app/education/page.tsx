@@ -23,7 +23,7 @@ export default function EducationPage() {
           </div>
 
           <div className="inline-flex items-center gap-2 rounded-full border border-teal/40 bg-teal/10 px-3.5 py-1 text-xs font-medium text-teal-soft mb-4">
-            <span>🎓 Academic Background & Milestones</span>
+            <span>Academic Background & Milestones</span>
           </div>
 
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-starlight font-bold tracking-tight">
@@ -190,7 +190,7 @@ export default function EducationPage() {
                       rel="noreferrer"
                       className="inline-flex items-center gap-1.5 text-xs text-teal-soft hover:underline"
                     >
-                      <span>📁 View Verified Certificate ↗</span>
+                      <span>View Verified Certificate ↗</span>
                     </a>
                   </div>
                 )}

@@ -50,7 +50,7 @@ export default function Experience() {
                       rel="noreferrer"
                       className="inline-flex items-center gap-1.5 rounded-xl border border-teal/40 bg-teal/10 px-3.5 py-1.5 text-xs font-semibold text-teal-soft hover:bg-teal/20 transition-all"
                     >
-                      <span>📁 View Verified Certificate ↗</span>
+                      <span>View Verified Certificate ↗</span>
                     </a>
                   </div>
                 )}

@@ -65,7 +65,7 @@ export default function Hero() {
                 href="/contact"
                 className="rounded-full border border-white/20 px-5 py-2.5 font-display text-xs md:text-sm font-semibold text-mist hover:text-starlight hover:border-white/40 transition-colors"
               >
-                Say hello ✉
+                Say hello
               </Link>
             </div>
 

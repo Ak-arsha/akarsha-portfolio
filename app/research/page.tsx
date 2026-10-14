@@ -23,7 +23,7 @@ export default function ResearchPage() {
           </div>
 
           <div className="inline-flex items-center gap-2 rounded-full border border-teal/40 bg-teal/10 px-3.5 py-1 text-xs font-medium text-teal-soft mb-4">
-            <span>🔬 Scientific Research & National Honors</span>
+            <span>Scientific Research & National Honors</span>
           </div>
 
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-starlight font-bold tracking-tight">
@@ -84,7 +84,7 @@ export default function ResearchPage() {
                       rel="noreferrer"
                       className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-teal to-violet px-5 py-3 text-xs md:text-sm font-semibold text-void hover:opacity-90 transition-opacity"
                     >
-                      <span>📄 Read LocalMark Manuscript PDF ↗</span>
+                      <span>Read LocalMark Manuscript PDF ↗</span>
                     </a>
                   </div>
                 )}
@@ -97,7 +97,7 @@ export default function ResearchPage() {
                     key={m}
                     className="rounded-xl border border-teal/30 bg-teal/5 px-3.5 py-1.5 text-xs font-mono font-medium text-teal-soft"
                   >
-                    ⚡ {m}
+                    {m}
                   </span>
                 ))}
               </div>
